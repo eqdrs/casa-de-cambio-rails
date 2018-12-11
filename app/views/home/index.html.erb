@@ -15,7 +15,7 @@
 <tbody>
 <% @transactions.each do |transaction| %>
   <tr>
-    <td><%= transaction.id %></td>
+    <td><%= link_to transaction.id, transaction %></td>
     <td><%= format("%.2f", transaction.amount) %></td>
     <td><%= Transaction.en_to_ptbr(transaction.currency) %></td>
     <td><%= Transaction.en_to_ptbr(transaction.transaction_type) %></td>

@@ -10,6 +10,10 @@ class Transaction < ApplicationRecord
     return 'Venda' if word == 'sell'
     'Compra'
   end
+
+  def date
+    self.created_at.strftime('%d/%m/%Y')
+  end
   
   def set_total
     if currency == 'dollar'

@@ -28,10 +28,9 @@ feature 'Admin visit homepage' do
 
   scenario 'and view multiple transactions' do
     transaction = Transaction.create(amount: 100, currency: 'dollar',
-                                     quotation: 3.89,
-                                     transaction_type: 'sell')
+                                     quotation: 3.89, transaction_type: 'sell')
     other_transaction = Transaction.create(amount: 150, currency: 'real',
-                                           quotation: 4.00,
+                                           quotation: 4,
                                            transaction_type: 'buy')
 
     visit root_path
