@@ -1,5 +1,7 @@
 <h1> Bem-vindo ao sistema de trocas de moedas </h1>
 
+
+<%= render "partials/no_transactions" %>
 <table border="1">
 <thead>
   <tr>
@@ -14,10 +16,10 @@
 <% @transactions.each do |transaction| %>
   <tr>
     <td><%= transaction.id %></td>
-    <td><%= transaction.amount %></td>
+    <td><%= format("%.2f", transaction.amount) %></td>
     <td><%= Transaction.en_to_ptbr(transaction.currency) %></td>
     <td><%= Transaction.en_to_ptbr(transaction.transaction_type) %></td>
-    <td><%= "$ #{transaction.set_total}" %></td>
+    <td><%= "$ #{format("%.2f", transaction.set_total)}" %></td>
   </tr>
 <% end %>
 </tbody>
