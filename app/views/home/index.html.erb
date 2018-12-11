@@ -1,1 +1,24 @@
 <h1> Bem-vindo ao sistema de trocas de moedas </h1>
+
+<table border="1">
+<thead>
+  <tr>
+    <th width="150">Identificador</th>
+    <th width="150">Quantidade</th>
+    <th width="150">Moeda</th>
+    <th width="150">Tipo</th>
+    <th width="150">Total</th>
+  </tr>
+</thead>
+<tbody>
+<% @transactions.each do |transaction| %>
+  <tr>
+    <td><%= transaction.id %></td>
+    <td><%= transaction.amount %></td>
+    <td><%= Transaction.en_to_ptbr(transaction.currency) %></td>
+    <td><%= Transaction.en_to_ptbr(transaction.transaction_type) %></td>
+    <td><%= "$ #{transaction.set_total}" %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
