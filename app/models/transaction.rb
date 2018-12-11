@@ -1,5 +1,7 @@
 class Transaction < ApplicationRecord
 
+  validates :amount, :quotation, :currency, :transaction_type, presence: true
+
   def real_to_dollar(quantity)
     quantity / self.quotation
   end

@@ -1,6 +1,5 @@
 <h1> Bem-vindo ao sistema de trocas de moedas </h1>
 
-
 <%= render "partials/no_transactions" %>
 <table border="1">
 <thead>
@@ -24,3 +23,5 @@
 <% end %>
 </tbody>
 </table>
+
+<p><%= link_to 'Registrar transação', new_transaction_path %></p>

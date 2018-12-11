@@ -2,9 +2,8 @@ require 'rails_helper'
 
 feature 'Admin view transaction detail' do
   scenario 'successfully' do
-    transaction = Transaction.create(amount: 100, currency: 'dollar',
-                                     quotation: 3.89,
-                                     transaction_type: 'sell')
+    transaction = Transaction.create(amount: 100, currency: 'dollar', quotation: 3.89,
+                      transaction_type: 'sell')
 
     visit root_path
     click_on transaction.id
@@ -26,8 +25,8 @@ feature 'Admin view transaction detail' do
   end
 
   scenario 'and return to recipe list' do
-    transaction = Transaction.create(amount: 100, currency: 'dollar',
-                                     quotation: 3.89, transaction_type: 'sell')
+    transaction = Transaction.create(amount: 100, currency: 'dollar', quotation: 3.89,
+                      transaction_type: 'sell')
 
     visit root_path
     click_on transaction.id
