@@ -1,17 +1,37 @@
-<h3>Identificador</h3>
-<p><%= @transaction.id %></p>
-<h3>Quantidade</h3>
-<p><%= number_with_precision(@transaction.amount, :precision => 2) %></p>
-<h3>Moeda</h3>
-<p><%= Transaction.en_to_ptbr(@transaction.currency) %></p>
-<h3>Cotação</h3>
-<p><%= "$ #{number_with_precision(@transaction.quotation, :precision => 2)}" %></p>
-<h3>Tipo</h3>
-<p><%= Transaction.en_to_ptbr(@transaction.transaction_type) %></p>
-<h3>Data</h3>
-<p><%= @transaction.date %></p>
-<h3>Total</h3>
-<p><%= "$ #{number_with_precision(@transaction.total, :precision => 2)}" %></p>
+<h3>Detalhes da transação</h3>
+
+<table style="border-collapse: collapse; width: 20%;" border="2">
+<tbody>
+  <tr>
+    <td style="width: 60%;"><h3>Identificador</h3></td>
+    <td style="width: 40%; text-align: right;"><p><%= @transaction.id %></p></td>
+  </tr>
+  <tr>
+    <td style="width: 60%;"><h3>Quantidade</h3></td>
+    <td style="width: 40%; text-align: right;"><p><%= number_with_precision(@transaction.amount, :precision => 2) %></p></td>
+  </tr>
+  <tr>
+    <td style="width: 60%;"><h3>Moeda</h3></td>
+    <td style="width: 40%; text-align: right;"><p><%= Transaction.en_to_ptbr(@transaction.currency) %></p></td>
+  </tr>
+  <tr>
+    <td style="width: 60%;"><h3>Cotação</h3></td>
+    <td style="width: 40%; text-align: right;"><p><%= "$ #{number_with_precision(@transaction.quotation, :precision => 2)}" %></p></td>
+  </tr>
+  <tr>
+    <td style="width: 60%;"><h3>Tipo</h3></td>
+    <td style="width: 40%; text-align: right;"><p><%= Transaction.en_to_ptbr(@transaction.transaction_type) %></p></td>
+  </tr>
+  <tr>
+    <td style="width: 60%;"><h3>Data</h3></td>
+    <td style="width: 40%; text-align: right;"><p><%= @transaction.date %></p></td>
+  </tr>
+  <tr>
+    <td style="width: 60%;"><h3>Total</h3></td>
+    <td style="width: 40%; text-align: right;"><p><%= "$ #{number_with_precision(@transaction.total, :precision => 2)}" %></p></td>
+  </tr>
+</tbody>
+</table>
 
 <p><%= link_to 'Editar', edit_transaction_path(@transaction) %></p>
 <p><%= link_to 'Apagar', transaction_path(@transaction), method: :delete %></p>

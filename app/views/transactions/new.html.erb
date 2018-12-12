@@ -1,12 +1,13 @@
+<h3>Registrar nova transação</h3>
 <%= render "partials/transaction_validation" %>
 <%= form_for @transaction do |f| %>
-  <%= f.label :amount, 'Quantidade' %>
-  <%= f.text_field :amount %>
-  <%= f.label :currency, 'Moeda' %>
-  <%= f.select :currency, [['Dólar','dollar'], ['Real','real']] %>
-  <%= f.label :quotation, 'Cotação' %>
-  <%= f.text_field :quotation %>
-  <%= f.label :transaction_type, 'Tipo' %>
-  <%= f.select :transaction_type, [['Compra', 'buy'], ['Venda', 'sell']] %>
-  <%= f.submit 'Cadastrar' %>
+  <p><%= f.label :amount, 'Quantidade: ' %>
+  <%= f.text_field :amount %></p>
+  <p><%= f.label :currency, 'Moeda: ' %>
+  <%= f.select :currency, [['Dólar','dollar'], ['Real','real']] %></p>
+  <p><%= f.label :quotation, 'Cotação: ' %>
+  <%= f.text_field :quotation %></p>
+  <p><%= f.label :transaction_type, 'Tipo: ' %>
+  <%= f.select :transaction_type, [['Compra', 'buy'], ['Venda', 'sell']] %></p>
+  <p><%= f.submit 'Cadastrar' %></p>
 <% end %>

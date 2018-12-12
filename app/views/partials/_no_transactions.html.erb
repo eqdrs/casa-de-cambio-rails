@@ -1,3 +1,7 @@
 <% if @transactions.length == 0 %>
- <p><%= p 'Você ainda não possui transações cadastradas!' %></p>
+  <div><strong><span style="color: #ff0000; font-size: 12pt;">
+    <%= p 'Você ainda não possui transações cadastradas!' %>
+  </span></strong></div>
+<% else %>
+  <p><%= p ' Transações Cadastradas:' %></p>
 <% end %>

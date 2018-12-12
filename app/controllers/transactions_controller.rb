@@ -1,4 +1,9 @@
 class TransactionsController < ApplicationController
+  def index
+    @transaction = Transaction.new
+    render :new
+  end
+
   def new
     @transaction = Transaction.new
   end
