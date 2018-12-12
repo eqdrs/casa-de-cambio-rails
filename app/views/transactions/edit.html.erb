@@ -1,0 +1,12 @@
+<%= render "partials/transaction_validation" %>
+<%= form_for @transaction do |f| %>
+  <%= f.label :amount, 'Quantidade' %>
+  <%= f.number_field :amount %>
+  <%= f.label :currency, 'Moeda' %>
+  <%= f.select :currency, [['Dólar','dollar'], ['Real','real']] %>
+  <%= f.label :quotation, 'Cotação' %>
+  <%= f.number_field :quotation %>
+  <%= f.label :transaction_type, 'Tipo' %>
+  <%= f.select :transaction_type, [['Compra', 'buy'], ['Venda', 'sell']] %>
+  <%= f.submit 'Editar' %>
+<% end %>

@@ -13,12 +13,27 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def edit
+    @transaction = Transaction.find(params[:id])
+  end
+
+  def update
+    @transaction = Transaction.find(params[:id])
+
+    if @transaction.update(transaction_params)
+      @transaction.set_total
+      redirect_to @transaction
+    else
+      render :edit
+    end
+  end
+
   def show
     @transaction = Transaction.find(params[:id])
   end
 
   private
-  
+
   def transaction_params
     params.require(:transaction).permit(:amount, :currency, :quotation, :transaction_type)
   end
