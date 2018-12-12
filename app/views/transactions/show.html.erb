@@ -13,5 +13,6 @@
 <h3>Total</h3>
 <p><%= "$ #{number_with_precision(@transaction.total, :precision => 2)}" %></p>
 
-<%= link_to 'Editar', edit_transaction_path(@transaction) %>
-<%= link_to 'Voltar', root_path %>
+<p><%= link_to 'Editar', edit_transaction_path(@transaction) %></p>
+<p><%= link_to 'Apagar', transaction_path(@transaction), method: :delete %></p>
+<p><%= link_to 'Voltar', root_path %></p>
