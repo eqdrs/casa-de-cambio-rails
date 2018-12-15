@@ -30,6 +30,7 @@ class TransactionsController < ApplicationController
       @transaction.set_total
       redirect_to @transaction
     else   
+      flash.now[:warning] = 'Você deve informar todos os dados da transação'
       render :edit
     end
   end

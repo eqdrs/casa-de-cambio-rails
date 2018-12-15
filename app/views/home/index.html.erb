@@ -3,27 +3,30 @@
 <p><%= render "partials/no_transactions" %></p>
 <p><%= flash_message %></p>
 
-<table border="1">
-<thead>
-  <tr>
-    <th width="150">Identificador</th>
-    <th width="150">Quantidade</th>
-    <th width="150">Moeda</th>
-    <th width="150">Tipo</th>
-    <th width="150">Total</th>
-  </tr>
-</thead>
-<tbody>
-<% @transactions.each do |transaction| %>
-  <tr>
-    <td style="text-align: center;"><%= link_to transaction.id, transaction %></td>
-    <td style="text-align: right;"><%= format("%.2f", transaction.amount) %></td>
-    <td style="text-align: right;"><%= Transaction.en_to_ptbr(transaction.currency) %></td>
-    <td style="text-align: right;"><%= Transaction.en_to_ptbr(transaction.transaction_type) %></td>
-    <td style="text-align: right;"><%= "$ #{format("%.2f", transaction.set_total)}" %></td>
-  </tr>
+<% if @transactions.length != 0 %>
+  <table border="1">
+  <caption> Transações Cadastradas </caption>
+  <thead>
+    <tr>
+      <th width="150"> Identificador </th>
+      <th width="150"> Quantidade </th>
+      <th width="150"> Moeda </th>
+      <th width="150"> Tipo </th>
+      <th width="150"> Total </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @transactions.each do |transaction| %>
+    <tr>
+      <td style="text-align: center;"><%= link_to transaction.id, transaction %></td>
+      <td style="text-align: right;"><%= format("%.2f", transaction.amount) %></td>
+      <td style="text-align: right;"><%= Transaction.en_to_ptbr(transaction.currency) %></td>
+      <td style="text-align: right;"><%= Transaction.en_to_ptbr(transaction.transaction_type) %></td>
+      <td style="text-align: right;"><%= "$ #{format("%.2f", transaction.set_total)}" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  </table>
 <% end %>
-</tbody>
-</table>
 
 <p><%= link_to 'Registrar transação', new_transaction_path %></p>
