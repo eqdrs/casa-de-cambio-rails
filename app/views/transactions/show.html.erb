@@ -33,6 +33,6 @@
 </tbody>
 </table>
 
-<p><%= link_to 'Editar', edit_transaction_path(@transaction) %></p>
-<p><%= link_to 'Apagar', transaction_path(@transaction), method: :delete %></p>
-<p><%= link_to 'Voltar', root_path %></p>
+<p><%= button_to 'Editar', edit_transaction_path(@transaction), method: :get %></p>
+<p><%= button_to 'Apagar', transaction_path(@transaction), method: :delete %></p>
+<p><%= button_to 'Voltar', root_path, method: :get %></p>
