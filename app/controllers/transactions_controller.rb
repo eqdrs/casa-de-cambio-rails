@@ -14,6 +14,7 @@ class TransactionsController < ApplicationController
       @transaction.set_total
       redirect_to @transaction
     else
+      flash.now[:warning] = 'Você deve informar todos os dados da transação'
       render :new
     end
   end
@@ -28,7 +29,7 @@ class TransactionsController < ApplicationController
     if @transaction.update(transaction_params)
       @transaction.set_total
       redirect_to @transaction
-    else
+    else   
       render :edit
     end
   end
@@ -41,7 +42,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id]) 
     @transaction.destroy
     flash[:notice] = 'Transação apagada com sucesso!'
-    redirect_to root_path(flash[:notice])
+    redirect_to root_path()
   end
 
   private

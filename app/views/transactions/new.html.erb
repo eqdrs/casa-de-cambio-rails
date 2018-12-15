@@ -1,5 +1,5 @@
 <h3>Registrar nova transação</h3>
-<%= render "partials/transaction_validation" %>
+<%= flash_message %>
 <%= form_for @transaction do |f| %>
   <p><%= f.label :amount, 'Quantidade: ' %>
   <%= f.text_field :amount %></p>

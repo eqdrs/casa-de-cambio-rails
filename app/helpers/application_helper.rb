@@ -3,10 +3,10 @@ module ApplicationHelper
     messages = ""
     [:notice, :info, :warning, :error].each {|type|
       if flash[type]
-        messages += "#{flash[type]}"
+        messages += "<div class=\"#{type}\">#{flash[type]}</div>"
       end
     }
 
-    messages
+    messages.html_safe
   end
 end

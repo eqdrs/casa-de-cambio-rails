@@ -1,7 +1,5 @@
 <% if @transactions.length == 0 %>
-  <div><strong><span style="color: #ff0000; font-size: 12pt;">
-    <%= p 'Você ainda não possui transações cadastradas!' %>
-  </span></strong></div>
+  <% flash.now[:info] = 'Você ainda não possui transações cadastradas!' %>
 <% else %>
   <p><%= p ' Transações Cadastradas:' %></p>
 <% end %>
