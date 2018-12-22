@@ -1,0 +1,16 @@
+<h3><%= @user.name %></h3>
+
+<table style="border-collapse: collapse; width: 20%;" border="2">
+<tbody>
+  <tr>
+    <td style="width: 60%;"><h3>E-mail</h3></td>
+    <td style="width: 40%; text-align: right;"><p><%= @user.email %></p></td>
+  </tr> 
+  <tr>
+    <td style="width: 60%;"><h3>CPF</h3></td>
+    <td style="width: 40%; text-align: right;"><p><%= @user.cpf %></p></td>
+  </tr>
+</tbody>
+</table>
+
+<p><%= button_to 'Voltar', root_path, method: :get %></p>
