@@ -1,3 +1,6 @@
-<% if @transactions.length == 0 %>
+<% if @transactions.empty? %>
   <% flash.now[:info] = 'Você ainda não possui transações cadastradas!' %>
 <% end %>
+
+<p><%= flash_message %></p>
+

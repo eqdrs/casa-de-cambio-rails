@@ -7,6 +7,10 @@
     <td style="width: 40%; text-align: right;"><p><%= @transaction.id %></p></td>
   </tr>
   <tr>
+    <td style="width: 60%;"><h3>Usuário</h3></td>
+    <td style="width: 40%; text-align: right;"><p><%= @transaction.user.email %></p></td>
+  </tr> 
+  <tr>
     <td style="width: 60%;"><h3>Quantidade</h3></td>
     <td style="width: 40%; text-align: right;"><p><%= number_with_precision(@transaction.amount, :precision => 2) %></p></td>
   </tr>

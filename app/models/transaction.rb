@@ -1,9 +1,9 @@
 class Transaction < ApplicationRecord
-
+  belongs_to :user
   validates :amount, :quotation, :currency, :transaction_type, presence: true
-
+  
   def real_to_dollar(quantity)
-    quantity / self.quotation
+    quantity / quotation
   end
 
   def self.en_to_ptbr(word)
@@ -14,17 +14,13 @@ class Transaction < ApplicationRecord
   end
 
   def date
-    self.created_at.strftime('%d/%m/%Y')
+    created_at.strftime('%d/%m/%Y')
   end
   
   def set_total
-    if currency == 'dollar'
-      transaction_type == 'buy' && self.update_attribute(:total, amount) or
-      transaction_type == 'sell' && self.update_attribute(:total, -amount)
-    else
-      transaction_type == 'buy' && self.update_attribute(:total, real_to_dollar(amount))  or
-      transaction_type == 'sell' && self.update_attribute(:total, real_to_dollar(-amount))
-    end
+    currency == 'real' ? total = real_to_dollar(amount) : total = amount
+    transaction_type == 'sell' && total = -total
+    self.update_attribute(:total, total)
     total
   end
 

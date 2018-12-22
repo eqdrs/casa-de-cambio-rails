@@ -1,9 +1,8 @@
-<h1 class="navbar"> Bem-vindo ao sistema de trocas de moedas </h1>
+<h1> Bem-vindo ao sistema de trocas de moedas </h1>
 
 <p><%= render "partials/no_transactions" %></p>
-<p><%= flash_message %></p>
 
-<% if @transactions.length != 0 %>
+<% if !@transactions.empty? %>
   <table border="1">
   <caption> Transações Cadastradas </caption>
   <thead>

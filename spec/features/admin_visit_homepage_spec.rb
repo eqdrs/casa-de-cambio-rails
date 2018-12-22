@@ -8,9 +8,11 @@ feature 'Admin visit homepage' do
   end
 
   scenario 'and view a transaction' do
+    user = User.create(email: 'teste@teste.com.br', name: 'Fulano Sicrano',
+                       cpf: '451.894.135-78')
     transaction = Transaction.create(amount: 100, currency: 'dollar',
                                      quotation: 3.89,
-                                     transaction_type: 'sell')
+                                     transaction_type: 'sell', user: user)
 
     visit root_path
 
@@ -27,11 +29,15 @@ feature 'Admin visit homepage' do
   end
 
   scenario 'and view multiple transactions' do
+    user = User.create(email: 'teste@teste.com.br', name: 'Fulano Sicrano',
+                       cpf: '451.894.135-78')
     transaction = Transaction.create(amount: 100, currency: 'dollar',
-                                     quotation: 3.89, transaction_type: 'sell')
+                                     quotation: 3.89, transaction_type: 'sell',
+                                     user: user)
     other_transaction = Transaction.create(amount: 150, currency: 'real',
                                            quotation: 4,
-                                           transaction_type: 'buy')
+                                           transaction_type: 'buy',
+                                           user: user)
 
     visit root_path
 

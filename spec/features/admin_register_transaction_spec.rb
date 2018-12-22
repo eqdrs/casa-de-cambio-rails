@@ -2,12 +2,16 @@ require 'rails_helper'
 
 feature 'Admin register a transaction' do
   scenario 'successfully' do
+    user = User.create(email: 'teste@teste.com.br', name: 'Fulano Sicrano',
+                       cpf: '451.894.135-78')
+
     visit root_path
     click_on 'Registrar transação'
     fill_in 'Quantidade', with: 100
     select 'Dólar', from: 'Moeda'
     fill_in 'Cotação', with: 3.89
     select 'Venda', from: 'Tipo'
+    select user.email, from: 'Usuário'
     click_on 'Cadastrar'
 
     expect(page).to have_css('h3', text: 'Quantidade')

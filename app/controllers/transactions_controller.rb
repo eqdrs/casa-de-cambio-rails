@@ -6,6 +6,7 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new
+    @users = User.all
   end
 
   def create
@@ -15,6 +16,7 @@ class TransactionsController < ApplicationController
       redirect_to @transaction
     else
       flash.now[:warning] = 'Você deve informar todos os dados da transação'
+      @users = User.all
       render :new
     end
   end
@@ -49,6 +51,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:amount, :currency, :quotation, :transaction_type)
+    params.require(:transaction).permit(:amount, :currency, :quotation, :transaction_type, :user_id)
   end
 end
