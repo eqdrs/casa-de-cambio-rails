@@ -6,7 +6,7 @@ class HomeController < ApplicationController
         @transactions = @transactions.public_send(key, value) if value.present?
       end
     else
-      @transactions = Transaction.all
+      @transactions = Transaction.today
     end
   end
 

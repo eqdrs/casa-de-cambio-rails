@@ -1,7 +1,6 @@
 class TransactionsController < ApplicationController
   def index
-    @transaction = Transaction.new
-    render :new
+    @transactions = Transaction.all
   end
 
   def new
@@ -51,7 +50,7 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:amount, :currency, :quotation, :transaction_type, :user_id)
+    params.require(:transaction).permit(:amount, :currency, :quotation, :transaction_type, :user_id, :created_at)
   end
-  
+
 end

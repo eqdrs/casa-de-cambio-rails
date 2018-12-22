@@ -65,4 +65,68 @@ feature 'Admin visit homepage' do
 
     expect(page).to have_content('Você ainda não possui transações cadastradas')
   end
+
+  scenario 'and view daily transactions only' do
+    user = User.create(email: 'teste@teste.com.br', name: 'Fulano Sicrano',
+                       cpf: '451.894.135-78')
+    transaction = Transaction.create(amount: 100, currency: 'dollar',
+                                     quotation: 3.89, transaction_type: 'sell',
+                                     user: user)
+    other_transaction = Transaction.create(amount: 150, currency: 'real',
+                                           quotation: 4,
+                                           transaction_type: 'buy',
+                                           user: user, created_at: 1.day.ago)
+
+    visit root_path
+
+    expect(page).to have_content('Identificador')
+    expect(page).to have_content('Quantidade')
+    expect(page).to have_content('Moeda')
+    expect(page).to have_content('Tipo')
+    expect(page).to have_content('Total')
+
+    expect(page).to have_content(transaction.id)
+    expect(page).to have_content('100')
+    expect(page).to have_content('Dólar')
+    expect(page).to have_content('Venda')
+    expect(page).to have_content('$ -100.00')
+
+    expect(page).not_to have_content(other_transaction.id)
+    expect(page).not_to have_content('150')
+    expect(page).not_to have_content('Compra')
+    expect(page).not_to have_content('$ 37.50')
+  end
+
+  scenario 'and can view all transactions' do
+    user = User.create(email: 'teste@teste.com.br', name: 'Fulano Sicrano',
+                       cpf: '451.894.135-78')
+    transaction = Transaction.create(amount: 100, currency: 'dollar',
+                                     quotation: 3.89, transaction_type: 'sell',
+                                     user: user)
+    other_transaction = Transaction.create(amount: 150, currency: 'real',
+                                           quotation: 4,
+                                           transaction_type: 'buy',
+                                           user: user, created_at: 1.day.ago)
+
+    visit root_path
+    click_on 'Ver todas'
+
+    expect(page).to have_content('Identificador')
+    expect(page).to have_content('Quantidade')
+    expect(page).to have_content('Moeda')
+    expect(page).to have_content('Tipo')
+    expect(page).to have_content('Total')
+
+    expect(page).to have_content(transaction.id)
+    expect(page).to have_content('100')
+    expect(page).to have_content('Dólar')
+    expect(page).to have_content('Venda')
+    expect(page).to have_content('$ -100.00')
+
+    expect(page).to have_content(other_transaction.id)
+    expect(page).to have_content('150')
+    expect(page).to have_content('Real')
+    expect(page).to have_content('Compra')
+    expect(page).to have_content('$ 37.50')
+  end
 end

@@ -2,6 +2,10 @@ class Transaction < ApplicationRecord
   belongs_to :user
   validates :amount, :quotation, :currency, :transaction_type, presence: true
   scope :currency, -> (currency) { where currency: currency }
+
+  def self.today
+    where("created_at >= ?", Time.zone.now.beginning_of_day)
+  end
   
   def real_to_dollar(quantity)
     quantity / quotation
