@@ -1,6 +1,7 @@
 class Transaction < ApplicationRecord
   belongs_to :user
   validates :amount, :quotation, :currency, :transaction_type, presence: true
+  scope :currency, -> (currency) { where currency: currency }
   
   def real_to_dollar(quantity)
     quantity / quotation
