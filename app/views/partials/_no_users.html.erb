@@ -1,0 +1,5 @@
+<% if @users.empty? %>
+  <% flash.now[:info] = 'Nenhum usuário cadastrado' %>
+<% end %>
+
+<p><%= flash_message %></p>

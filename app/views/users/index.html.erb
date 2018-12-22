@@ -1,5 +1,8 @@
 <h3> Usuários </h3>
 
+<p><%= render "partials/no_users" %></p>
+
+<% if @users.any? %>
   <table border="1">
   <caption> Usuários Cadastrados </caption>
   <thead>
@@ -21,3 +24,4 @@
   <% end %>
   </tbody>
   </table>
+<% end %>

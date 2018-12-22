@@ -2,7 +2,7 @@
 
 <p><%= render "partials/no_transactions" %></p>
 
-<% if !@transactions.empty? %>
+<% if @transactions.any? %>
   <table border="1">
   <caption> Transações Cadastradas </caption>
   <thead>

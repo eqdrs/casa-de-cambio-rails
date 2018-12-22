@@ -3,12 +3,22 @@
 <table style="border-collapse: collapse; width: 20%;" border="2">
 <tbody>
   <tr>
-    <td style="width: 60%;"><h3>E-mail</h3></td>
+    <td style="width: 60%;"><h3> E-mail </h3></td>
     <td style="width: 40%; text-align: right;"><p><%= @user.email %></p></td>
   </tr> 
   <tr>
-    <td style="width: 60%;"><h3>CPF</h3></td>
+    <td style="width: 60%;"><h3> CPF </h3></td>
     <td style="width: 40%; text-align: right;"><p><%= @user.cpf %></p></td>
+  </tr>
+  <tr>
+    <td style="width: 60%;"><h3> Endereço </h3></td>
+    <% if @user.address %>
+      <td style="width: 40%; text-align: right;"><p><%= "#{@user.address.street}\n#{@user.address.neighbourhood}\n\
+                                                          #{@user.address.city} - #{@user.address.state}\n\
+                                                          #{@user.address.postal_code}" %></p></td>
+    <% else %>
+      <td style="width: 40%; text-align: right;"><p> Este usuário não tem um endereço cadastrado </p></td>
+    <% end %>
   </tr>
 </tbody>
 </table>
