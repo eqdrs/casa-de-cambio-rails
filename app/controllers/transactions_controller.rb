@@ -52,5 +52,4 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(:amount, :currency, :quotation, :transaction_type, :user_id, :created_at)
   end
-
 end

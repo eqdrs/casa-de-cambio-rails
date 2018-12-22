@@ -32,6 +32,10 @@
       <td style="text-align: right;"><%= "$ #{format("%.2f", transaction.set_total)}" %></td>
     </tr>
   <% end %>
+  <tr>
+    <td style="text-align: right;" colspan="4"> Total agregado </td>
+    <td style="text-align: right;"><%= "$ #{format("%.2f", @transactions.sum(:total))}" %></td>  
+  </tr>
   </tbody>
   </table>
 <% end %>

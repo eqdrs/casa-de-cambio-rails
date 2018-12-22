@@ -26,6 +26,8 @@ feature 'Admin visit homepage' do
     expect(page).to have_content('Venda')
     expect(page).to have_content('Total')
     expect(page).to have_content('$ -100.00')
+    expect(page).to have_content('Total agregado')
+    expect(page).to have_content('$ -100.00')
   end
 
   scenario 'and view multiple transactions' do
@@ -58,6 +60,9 @@ feature 'Admin visit homepage' do
     expect(page).to have_content('Real')
     expect(page).to have_content('Compra')
     expect(page).to have_content('$ 37.50')
+
+    expect(page).to have_content('Total agregado')
+    expect(page).to have_content('$ -62.50')
   end
 
   scenario 'and has no transactions' do

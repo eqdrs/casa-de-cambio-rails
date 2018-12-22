@@ -20,6 +20,9 @@ feature 'Admin filter by currency' do
     expect(page).to have_content('100')
     expect(page).not_to have_content('70')
     expect(page).not_to have_content('Compra')
+
+    expect(page).to have_content('Total agregado')
+    expect(page).to have_content('$ -100.00')
   end
   scenario 'and find nothing' do
     visit root_path
