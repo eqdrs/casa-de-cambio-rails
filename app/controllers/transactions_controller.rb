@@ -15,7 +15,6 @@ class TransactionsController < ApplicationController
       redirect_to @transaction
     else
       flash[:warning] = 'Você deve informar todos os dados da transação'
-      @users = User.all
       redirect_to new_transaction_path
      
     end

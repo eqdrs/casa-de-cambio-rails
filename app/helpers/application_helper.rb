@@ -3,7 +3,7 @@ module ApplicationHelper
     messages = ""
     [:notice, :info, :warning, :error].each {|type|
       if flash[type]
-        messages += "<p><div class=\"#{type}\">#{flash[type]}</div></p>"
+        messages += "<p><div class=\"#{type} ls-alert-info\">#{flash[type]}</div></p>"
       end
     }
 
