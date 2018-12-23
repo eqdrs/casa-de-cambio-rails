@@ -1,27 +1,43 @@
-<h3> Usuários </h3>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-users">Usuários</h1>
 
-<p><%= render "partials/no_users" %></p>
+  <div class="row" >
+    <div class="col-md-6">
+      <div class="ls-box">
 
-<% if @users.any? %>
-  <table border="1">
-  <caption> Usuários Cadastrados </caption>
-  <thead>
-    <tr>
-      <th width="150"> Identificador </th>
-      <th width="150"> Nome </th>
-      <th width="150"> E-mail </th>
-      <th width="150"> CPF </th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <td style="text-align: center;"><%= link_to user.id, user %></td>
-      <td style="text-align: right;"><%= user.name %></td>
-      <td style="text-align: right;"><%= user.email %></td>
-      <td style="text-align: right;"><%= user.cpf %></td>
-    </tr>
-  <% end %>
-  </tbody>
-  </table>
-<% end %>
+        <header class="ls-info-header">
+          <h2 class="ls-title-3">Usuários cadastrados</h2>
+        </header>
+
+        <% if @users.any? %>
+          <table class="ls-table">
+          <thead>
+            <tr>
+              <th> Identificador </th>
+              <th> Nome </th>
+              <th> E-mail </th>
+              <th> CPF </th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= link_to user.id, user %></td>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.cpf %></td>
+            </tr>
+          <% end %>
+          </tbody>
+          </table>
+        <% else %>
+          <p>Nenhum usuário cadastrado</p>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+  <p><a href="<%= new_user_path %>" class="ls-btn-primary">Cadastrar usuário</a></p>
+  <p><a href="<%= root_path %>" class="ls-btn-primary">Voltar</a></p>
+</div>

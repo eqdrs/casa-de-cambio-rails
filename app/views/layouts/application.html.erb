@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html class="ls-theme-green">
   <head>
-    <title>CasaDeCambioRails2</title>
+    <title>Casa De Cambio</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <!-- Insert the CSS in HEAD -->
+    <link rel="stylesheet" type="text/css" href="//assets.locaweb.com.br/locastyle/3.10.0/stylesheets/locastyle.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="documentacao documentacao_exemplos documentacao_exemplos_painel1 documentacao_exemplos_painel1_home documentacao_exemplos_painel1_home_index">
+
+    <div class="ls-topbar ">
+
+      <span class="ls-show-sidebar ls-ico-menu"></span>
+      <a href="<%= root_path %>"  class="ls-go-next"><span class="ls-text">Voltar à página inicial</span></a>
+
+      <h1 class="ls-brand-name"> 
+        <a href="<%= root_path %>" class="ls-ico-earth">
+          <small>Bem-vindo ao sistema de trocas de moedas </small>
+          Casa de Câmbio 
+        </a>
+      </h1>
+
+      <%= yield %>
+    </div>
+
+    <!-- JQuery is a dependency -->
+    <script src="http://code.jquery.com/jquery-2.0.1.min.js">
+  
+    <!-- Put the JS in your footer, always after jQuery (dependency) -->
+    <script src="//assets.locaweb.com.br/locastyle/3.10.0/javascripts/locastyle.js"></script>
   </body>
 </html>

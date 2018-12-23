@@ -1,13 +1,37 @@
-<h3>Editar transação</h3>
-<%= flash_message %>
-<%= form_for @transaction do |f| %>
-  <p><%= f.label :amount, 'Quantidade: ' %>
-  <%= f.text_field :amount %></p>
-  <p><%= f.label :currency, 'Moeda: ' %>
-  <%= f.select :currency, [['Dólar','dollar'], ['Real','real']] %></p>
-  <p><%= f.label :quotation, 'Cotação: ' %>
-  <%= f.text_field :quotation %></p>
-  <p><%= f.label :transaction_type, 'Tipo: ' %>
-  <%= f.select :transaction_type, [['Compra', 'buy'], ['Venda', 'sell']] %></p>
-  <p><%= f.submit 'Editar' %></p>
-<% end %>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-stats">Editar transação</h1>
+  <%= flash_message %>
+
+  <div class="col-md-4">
+  <div class="ls-box">
+    <div class="ls-form">
+      <%= form_for @transaction do |f| %>
+        <p class="ls-label col-md-10"><%= f.label :amount, 'Quantidade: ' %></p>
+        <p class="ls-label col-md-10"><%= f.text_field :amount %></p>
+        <p class="ls-label col-md-10"><%= f.label :currency, 'Moeda: ' %></p>
+        <label class="ls-label col-md-10">
+          <div class="ls-custom-select ls-field-sm col-md-5">
+            <%= f.select :currency, [['Dólar','dollar'], ['Real','real']] %>
+          </div>
+        </label>
+        <p class="ls-label col-md-10"><%= f.label :quotation, 'Cotação: ' %></p>
+        <p class="ls-label col-md-10"><%= f.text_field :quotation %></p>
+        <p class="ls-label col-md-10"><%= f.label :transaction_type, 'Tipo: ' %></p>
+        <label class="ls-label col-md-10">
+          <div class="ls-custom-select ls-field-sm col-md-5">
+            <%= f.select :transaction_type, [['Compra', 'buy'], ['Venda', 'sell']] %>
+          </div>
+        </label>
+        <p class="ls-label col-md-10"><%= f.label :user_id, 'Usuário: ' %></p>
+        <label class="ls-label col-md-10">
+          <div class="ls-custom-select ls-field-sm col-md-5">
+            <%= f.collection_select :user_id, @users, :id, :email %>
+          </div>
+        </label>
+        <p class="ls-actions-btn"><input type="submit" value="Editar" class="ls-btn ls-btn-sm" title="Editar"></p>
+      <% end %>
+    </div>
+  </div>
+  </div>
+
+</div>

@@ -1,11 +1,23 @@
-<h3>Editar usuário</h3>
-<%= flash_message %>
-<%= form_for @user do |f| %>
-  <p><%= f.label :email, 'E-mail: ' %>
-  <%= f.text_field :email %></p>
-  <p><%= f.label :name, 'Nome: ' %>
-  <%= f.text_field :name %></p>
-  <p><%= f.label :cpf, 'CPF: ' %>
-  <%= f.text_field :cpf %></p>
-  <p><%= f.submit 'Editar' %></p>
-<% end %>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-users">Editar usuário</h1>
+  <%= flash_message %>
+
+  <div class="col-md-4">
+  <div class="ls-box">
+    <div class="ls-form">
+      <%= form_for @user do |f| %>
+        <p class="ls-label col-md-10"><%= f.label :email, 'E-mail: ' %>
+        <%= f.text_field :email %></p>
+        <p class="ls-label col-md-10"><%= f.label :name, 'Nome: ' %>
+        <%= f.text_field :name %></p>
+        <p class="ls-label col-md-10"><%= f.label :cpf, 'CPF: ' %>
+        <%= f.text_field :cpf %></p>
+        <p class="ls-actions-btn">
+          <input type="submit" value="Editar" class="ls-btn ls-btn-sm" title="Editar">
+        </p>
+      <% end %>
+    </div>
+  </div>
+  </div>
+
+</div>

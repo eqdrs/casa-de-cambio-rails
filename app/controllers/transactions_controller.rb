@@ -14,14 +14,16 @@ class TransactionsController < ApplicationController
       @transaction.set_total
       redirect_to @transaction
     else
-      flash.now[:warning] = 'Você deve informar todos os dados da transação'
+      flash[:warning] = 'Você deve informar todos os dados da transação'
       @users = User.all
-      render :new
+      redirect_to new_transaction_path
+     
     end
   end
 
   def edit
     @transaction = Transaction.find(params[:id])
+    @users = User.all
   end
 
   def update
@@ -31,8 +33,8 @@ class TransactionsController < ApplicationController
       @transaction.set_total
       redirect_to @transaction
     else   
-      flash.now[:warning] = 'Você deve informar todos os dados da transação'
-      render :edit
+      flash[:warning] = 'Você deve informar todos os dados da transação'
+      redirect_to edit_transaction_path(@transaction)
     end
   end
 

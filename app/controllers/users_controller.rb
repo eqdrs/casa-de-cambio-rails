@@ -12,8 +12,8 @@ class UsersController < ApplicationController
     if @user.valid?
       redirect_to @user
     else
-      flash.now[:warning] = 'Você deve informar todos os dados do usuário'
-      render :new
+      flash[:warning] = 'Você deve informar todos os dados do usuário'
+      redirect_to new_user_path
     end
   end
 
@@ -27,8 +27,8 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user
     else   
-      flash.now[:warning] = 'Você deve informar todos os dados do usuário'
-      render :edit
+      flash[:warning] = 'Você deve informar todos os dados do usuário'
+      redirect_to edit_user_path(@user)
     end
   end
 

@@ -17,7 +17,7 @@
 .notice, .error, .warning, .info {
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+  font-weight: 500;
   margin: -10px 0 15px 0;
   padding: 5px 5px 5px 27px;
 }
@@ -37,11 +37,11 @@
 .warning {
   border: 1px solid #dd0;
   background: #ffc url('error.png') no-repeat 5px center;
-  color: #000;
+  color: rgb(87, 86, 86);
 }
 
 .info {
   border: 1px solid #82c2d4;
   background: #ebf5f8 url('information.png') no-repeat 5px center;
-  color: #000;
+  color: rgb(87, 86, 86);
 }
