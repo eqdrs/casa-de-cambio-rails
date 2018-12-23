@@ -1,43 +1,41 @@
-<div class="container-fluid">
-  <h1 class="ls-title-intro ls-ico-users">Usuários</h1>
+<h1 class="ls-title-intro ls-ico-users">Usuários</h1>
 
-  <div class="row" >
-    <div class="col-md-6">
-      <div class="ls-box">
+<div class="row" >
+  <div class="col-md-7">
+    <div class="ls-box">
 
-        <header class="ls-info-header">
-          <h2 class="ls-title-3">Usuários cadastrados</h2>
-        </header>
+      <header class="ls-info-header">
+        <h2 class="ls-title-3">Usuários cadastrados</h2>
+      </header>
 
-        <% if @users.any? %>
-          <table class="ls-table">
-          <thead>
-            <tr>
-              <th> Identificador </th>
-              <th> Nome </th>
-              <th> E-mail </th>
-              <th> CPF </th>
-            </tr>
-          </thead>
-          <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= link_to user.id, user %></td>
-              <td><%= user.name %></td>
-              <td><%= user.email %></td>
-              <td><%= user.cpf %></td>
-            </tr>
-          <% end %>
-          </tbody>
-          </table>
-        <% else %>
-          <p>Nenhum usuário cadastrado</p>
+      <% if @users.any? %>
+        <table class="ls-table">
+        <thead>
+          <tr>
+            <th> Identificador </th>
+            <th> Nome </th>
+            <th> E-mail </th>
+            <th> CPF </th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.id, user %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.cpf %></td>
+          </tr>
         <% end %>
+        </tbody>
+        </table>
+      <% else %>
+        <p>Nenhum usuário cadastrado</p>
+      <% end %>
 
-      </div>
     </div>
   </div>
-
-  <p><a href="<%= new_user_path %>" class="ls-btn-primary">Cadastrar usuário</a></p>
-  <p><a href="<%= root_path %>" class="ls-btn-primary">Voltar</a></p>
 </div>
+
+<p><a href="<%= new_user_path %>" class="ls-ico-user-add ls-btn-primary">Cadastrar usuário</a></p>
+<p><a href="<%= root_path %>" class="ls-ico-home ls-btn-primary">Voltar</a></p>

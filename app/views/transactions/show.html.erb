@@ -1,56 +1,54 @@
-<div class="container-fluid">
-  <h1 class="ls-title-intro ls-ico-stats">Detalhes da transação</h1>
+<h1 class="ls-title-intro ls-ico-stats">Detalhes da transação</h1>
 
-  <div class="row">
-  <div class="col-md-4">
-    <div class="ls-box">
+<div class="row">
+<div class="col-md-5">
+  <div class="ls-box">
 
-      <header class="ls-info-header">
-        <h2 class="ls-title-3">Transação</h2>
-        <a href="<%= root_path %>" class="ls-btn-primary ls-btn ls-btn-sm">Voltar</a>
-        <a rel="nofollow" data-method="delete" href="<%= transaction_path(@transaction) %>" class="ls-btn-primary ls-btn ls-btn-sm">Apagar</a>
-        <a href="<%= edit_transaction_path(@transaction) %>" class="ls-btn-primary ls-btn ls-btn-sm">Editar</a>
-      </header>
+    <header class="ls-info-header">
+      <h2 class="ls-title-3">Transação</h2>
+      <a href="<%= root_path %>" class="ls-btn-primary ls-btn ls-btn-sm">Voltar</a>
+      <a rel="nofollow" data-method="delete" href="<%= transaction_path(@transaction) %>" class="ls-btn-primary ls-btn ls-btn-sm">Apagar</a>
+      <a href="<%= edit_transaction_path(@transaction) %>" class="ls-btn-primary ls-btn ls-btn-sm">Editar</a>
+    </header>
 
-      <table class="ls-table">
-        <tbody>
-          <tr>
-            <td><h3>Identificador</h3></td>
-            <td style="text-align: right;"><p><%= @transaction.id %></p></td>
-          </tr>
-          <tr>
-            <td><h3>Usuário</h3></td>
-            <td style="text-align: right;"><p><%= @transaction.user.email %></p></td>
-          </tr> 
-          <tr>
-            <td><h3>Quantidade</h3></td>
-            <td style="text-align: right;"><p><%= number_with_precision(@transaction.amount, :precision => 2) %></p></td>
-          </tr>
-          <tr>
-            <td><h3>Moeda</h3></td>
-            <td style="text-align: right;"><p><%= Transaction.en_to_ptbr(@transaction.currency) %></p></td>
-          </tr>
-          <tr>
-            <td><h3>Cotação</h3></td>
-            <td style="text-align: right;"><p><%= "$ #{number_with_precision(@transaction.quotation, :precision => 2)}" %></p></td>
-          </tr>
-          <tr>
-            <td><h3>Tipo</h3></td>
-            <td style="text-align: right;"><p><%= Transaction.en_to_ptbr(@transaction.transaction_type) %></p></td>
-          </tr>
-          <tr>
-            <td><h3>Data</h3></td>
-            <td style="text-align: right;"><p><%= @transaction.date %></p></td>
-          </tr>
-          <tr>
-            <td><h3>Total</h3></td>
-            <td style="text-align: right;"><p><%= "$ #{number_with_precision(@transaction.total, :precision => 2)}" %></p></td>
-          </tr>
-        </tbody>
-      </table>
+    <table class="ls-table">
+      <tbody>
+        <tr>
+          <td><h3>Identificador</h3></td>
+          <td style="text-align: right;"><p><%= @transaction.id %></p></td>
+        </tr>
+        <tr>
+          <td><h3>Usuário</h3></td>
+          <td style="text-align: right;"><p><%= @transaction.user.email %></p></td>
+        </tr> 
+        <tr>
+          <td><h3>Quantidade</h3></td>
+          <td style="text-align: right;"><p><%= number_with_precision(@transaction.amount, :precision => 2) %></p></td>
+        </tr>
+        <tr>
+          <td><h3>Moeda</h3></td>
+          <td style="text-align: right;"><p><%= Transaction.en_to_ptbr(@transaction.currency) %></p></td>
+        </tr>
+        <tr>
+          <td><h3>Cotação</h3></td>
+          <td style="text-align: right;"><p><%= "$ #{number_with_precision(@transaction.quotation, :precision => 2)}" %></p></td>
+        </tr>
+        <tr>
+          <td><h3>Tipo</h3></td>
+          <td style="text-align: right;"><p><%= Transaction.en_to_ptbr(@transaction.transaction_type) %></p></td>
+        </tr>
+        <tr>
+          <td><h3>Data</h3></td>
+          <td style="text-align: right;"><p><%= @transaction.date %></p></td>
+        </tr>
+        <tr>
+          <td><h3>Total</h3></td>
+          <td style="text-align: right;"><p><%= "$ #{number_with_precision(@transaction.total, :precision => 2)}" %></p></td>
+        </tr>
+      </tbody>
+    </table>
 
-    </div>
   </div>
-  </div>
-
 </div>
+</div>
+

@@ -1,47 +1,44 @@
-<div class="container-fluid">
-  <h1 class="ls-title-intro ls-ico-stats">Transações</h1>
+<h1 class="ls-title-intro ls-ico-stats">Transações</h1>
 
-  <div class="row">
-    <div class="col-md-6">
-      <div class="ls-box">
-        <header class="ls-info-header">
-          <h2 class="ls-title-3">Todas as transações</h2>
-        </header>
-        <% if @transactions.any? %>
-          <table class="ls-table">
-            <thead>
+<div class="row">
+  <div class="col-md-7">
+    <div class="ls-box">
+      <header class="ls-info-header">
+        <h2 class="ls-title-3">Todas as transações</h2>
+      </header>
+      <% if @transactions.any? %>
+        <table class="ls-table">
+          <thead>
+            <tr>
+              <th> Identificador </th>
+              <th> Quantidade </th>
+              <th> Moeda </th>
+              <th> Tipo </th>
+              <th> Total </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @transactions.each do |transaction| %>
               <tr>
-                <th> Identificador </th>
-                <th> Quantidade </th>
-                <th> Moeda </th>
-                <th> Tipo </th>
-                <th> Total </th>
+                <td><%= link_to transaction.id, transaction %></td>
+                <td><%= format("%.2f", transaction.amount) %></td>
+                <td><%= Transaction.en_to_ptbr(transaction.currency) %></td>
+                <td><%= Transaction.en_to_ptbr(transaction.transaction_type) %></td>
+                <td><%= "$ #{format("%.2f", transaction.set_total)}" %></td>
               </tr>
-            </thead>
-            <tbody>
-              <% @transactions.each do |transaction| %>
-                <tr>
-                  <td><%= link_to transaction.id, transaction %></td>
-                  <td><%= format("%.2f", transaction.amount) %></td>
-                  <td><%= Transaction.en_to_ptbr(transaction.currency) %></td>
-                  <td><%= Transaction.en_to_ptbr(transaction.transaction_type) %></td>
-                  <td><%= "$ #{format("%.2f", transaction.set_total)}" %></td>
-                </tr>
-              <% end %>
-              <tr>
-                <td colspan="4"> Total agregado </td>
-                <td><%= "$ #{format("%.2f", @transactions.sum(:total))}" %></td>  
-              </tr>
-            </tbody>
-          </table>
-      </div>
-      <% else %>
-        <p>Você ainda não possui transações cadastradas.</p>
-      <% end %>
+            <% end %>
+            <tr>
+              <td colspan="4"> Total agregado </td>
+              <td><%= "$ #{format("%.2f", @transactions.sum(:total))}" %></td>  
+            </tr>
+          </tbody>
+        </table>
     </div>
+    <% else %>
+      <p>Você ainda não possui transações cadastradas.</p>
+    <% end %>
   </div>
-
-  <p><a href="<%= new_transaction_path %>" class="ls-btn-primary">Registrar transação</a></p>
-  <p><a href="<%= root_path %>" class="ls-btn-primary">Voltar</a></p>
-
 </div>
+
+<p><a href="<%= new_transaction_path %>" class="ls-ico-stats ls-btn-primary">Registrar transação</a></p>
+<p><a href="<%= root_path %>" class="ls-ico-home ls-btn-primary">Voltar</a></p>

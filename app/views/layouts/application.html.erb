@@ -3,6 +3,11 @@
   <head>
     <title>Casa De Cambio</title>
 
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Casa de câmbio">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,9 +18,25 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="documentacao documentacao_exemplos documentacao_exemplos_painel1 documentacao_exemplos_painel1_home documentacao_exemplos_painel1_home_index">
+  <body>
 
-    <div class="ls-topbar ">
+    <aside class="ls-sidebar">
+      <div class="ls-sidebar-inner">
+          
+        <nav class="ls-menu">
+          <ul>
+            <li><%= link_to 'Página inicial', root_path, class: 'ls-ico-home' %></li>
+            <li><%= link_to 'Transações', transactions_path, class: 'ls-ico-stats' %></li>
+            <li><%= link_to 'Usuários', users_path, class: 'ls-ico-users' %></li>
+            <li><%= link_to 'Registro de transação', new_transaction_path, class: 'ls-ico-plus' %></li>
+            <li><%= link_to 'Cadastro de usuários', new_user_path, class: 'ls-ico-user-add' %></li>
+          </ul>
+        </nav>
+
+      </div>
+    </aside>
+
+    <div class="ls-topbar">
 
       <span class="ls-show-sidebar ls-ico-menu"></span>
       <a href="<%= root_path %>"  class="ls-go-next"><span class="ls-text">Voltar à página inicial</span></a>
@@ -26,14 +47,15 @@
           Casa de Câmbio 
         </a>
       </h1>
-
-      <%= yield %>
     </div>
 
-    <!-- JQuery is a dependency -->
+    <main class="ls-main ">
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </main>
+
     <script src="http://code.jquery.com/jquery-2.0.1.min.js">
-  
-    <!-- Put the JS in your footer, always after jQuery (dependency) -->
     <script src="//assets.locaweb.com.br/locastyle/3.10.0/javascripts/locastyle.js"></script>
   </body>
 </html>

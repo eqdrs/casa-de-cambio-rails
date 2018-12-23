@@ -1,41 +1,38 @@
-<div class="container-fluid">
-  <h3 class="ls-title-intro ls-ico-users"><%= @user.name %></h3>
+<h3 class="ls-title-intro ls-ico-users"><%= @user.name %></h3>
 
-  <div class="row">
-  <div class="col-md-4">
-    <div class="ls-box">
+<div class="row">
+<div class="col-md-5">
+  <div class="ls-box">
 
-      <header class="ls-info-header">
-        <h2 class="ls-title-3">Dados pessoais</h2>
-        <a href="<%= root_path %>" class="ls-btn-primary ls-btn ls-btn-sm"> Voltar </a>
-        <a href="<%= edit_user_path(@user) %>" class="ls-btn-primary ls-btn ls-btn-sm"> Editar </a>
-      </header>
+    <header class="ls-info-header">
+      <h2 class="ls-title-3">Dados pessoais</h2>
+      <a href="<%= root_path %>" class="ls-btn-primary ls-btn ls-btn-sm"> Voltar </a>
+      <a href="<%= edit_user_path(@user) %>" class="ls-btn-primary ls-btn ls-btn-sm"> Editar </a>
+    </header>
 
-      <table class="ls-table">
-        <tbody>
-          <tr>
-            <td><h3> E-mail </h3></td>
-            <td style="text-align: left;"><p><%= @user.email %></p></td>
-          </tr> 
-          <tr>
-            <td><h3> CPF </h3></td>
-            <td style="text-align: left;"><p><%= @user.cpf %></p></td>
-          </tr>
-          <tr>
-            <td><h3> Endereço </h3></td>
-            <% if @user.address %>
-              <td style="text-align: left;"><p><%= "#{@user.address.street}\n#{@user.address.neighbourhood}\n\
-                                                                  #{@user.address.city} - #{@user.address.state}\n\
-                                                                  #{@user.address.postal_code}" %></p></td>
-            <% else %>
-              <td style="text-align: left;"><p> Este usuário não tem um endereço cadastrado </p></td>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
-      
-    </div>
+    <table class="ls-table">
+      <tbody>
+        <tr>
+          <td><h3> E-mail </h3></td>
+          <td style="text-align: left;"><p><%= @user.email %></p></td>
+        </tr> 
+        <tr>
+          <td><h3> CPF </h3></td>
+          <td style="text-align: left;"><p><%= @user.cpf %></p></td>
+        </tr>
+        <tr>
+          <td><h3> Endereço </h3></td>
+          <% if @user.address %>
+            <td style="text-align: left;"><p><%= "#{@user.address.street}\n#{@user.address.neighbourhood}\n\
+                                                                #{@user.address.city} - #{@user.address.state}\n\
+                                                                #{@user.address.postal_code}" %></p></td>
+          <% else %>
+            <td style="text-align: left;"><p> Este usuário não tem um endereço cadastrado </p></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+    
   </div>
-  </div>
-
+</div>
 </div>
