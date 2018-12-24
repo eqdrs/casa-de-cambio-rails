@@ -10,6 +10,10 @@ class HomeController < ApplicationController
     end
   end
 
+  def catch_404
+    raise ActionController::RoutingError.new(params[:path])
+  end
+
   private
 
   def filtering_params(params)
