@@ -1,5 +1,8 @@
 class TransactionsController < ApplicationController
   def index
+    (params[:greater_than].present? && params[:less_than].present? && @transactions = Transaction.where(total: params[:greater_than]..params[:less_than])) or
+    (params[:greater_than].present? && @transactions = Transaction.where("total >= ?", params[:greater_than])) or
+    (params[:less_than].present? && @transactions = Transaction.where("total <= ?", params[:less_than])) or
     @transactions = Transaction.all
   end
 
@@ -51,6 +54,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:amount, :currency, :quotation, :transaction_type, :user_id, :created_at)
+    params.require(:transaction).permit(:amount, :currency, :quotation, :transaction_type, :user_id, :created_at, :greater_than, :less_than)
   end
 end

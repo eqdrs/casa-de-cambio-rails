@@ -1,5 +1,31 @@
 <h1 class="ls-title-intro ls-ico-stats">Transações</h1>
 
+<p><div class="ls-box-filter">
+  <div class="ls-form ls-form-inline ls-float-left">     
+    <%= form_tag(transactions_path, method: "get") do %>
+
+      <label class="ls-label col-md-5 col-sm-8">
+        <b class="ls-label-text"><%= label_tag :greater_than, 'Valor total entre' %></b>
+        <div class="ls-field-sm">
+          <%= number_field_tag :greater_than %>
+        </div>
+      </label>
+
+      <label class="ls-label col-md-3 col-sm-8">
+        <b class="ls-label-text"><%= label_tag :less_than, 'e' %></b>
+        <div class="ls-field-sm">
+          <%= number_field_tag :less_than %>
+        </div>
+      </label>
+
+      <div class="ls-actions-btn">
+        <input type="submit" value="Filtrar" class="ls-btn ls-btn-sm" title="Filtrar">
+      </div>
+      
+    <% end %>     
+  </div>
+</div></p>
+
 <div class="row">
   <div class="col-md-7">
     <div class="ls-box">
