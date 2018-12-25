@@ -1,0 +1,36 @@
+<h3 class="ls-title-intro ls-ico-location"> Detalhes de endereço </h3>
+
+<div class="row">
+<div class="col-md-5">
+  <div class="ls-box">
+
+    <header class="ls-info-header">
+      <h2 class="ls-title-3"> Informações </h2>
+      <a href="<%= root_path %>" class="ls-btn-primary ls-btn ls-btn-sm"> Voltar </a>
+    </header>
+
+    <table class="ls-table">
+      <tbody>
+        <tr>
+          <td><h3> Rua </h3></td>
+          <td style="text-align: left;"><p><%= @address.street %></p></td>
+        </tr> 
+        <tr>
+          <td><h3> Cidade </h3></td>
+          <td style="text-align: left;"><p><%= @address.city %></p></td>
+        </tr>
+        <tr>
+          <td><h3> Vizinhança </h3></td>
+          <td style="text-align: left;"><p><%= @address.neighbourhood %></p></td>
+        </tr>
+        <tr>
+          <td><h3> CEP </h3></td>
+          <td style="text-align: left;"><p><%= @address.postal_code %></p></td>
+        </tr>
+
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+</div>

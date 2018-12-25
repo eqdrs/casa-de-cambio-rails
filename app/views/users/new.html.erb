@@ -1,16 +1,31 @@
 <h1 class="ls-title-intro ls-ico-user-add">Cadastrar Usuário</h1>
 <%= flash_message %>
 
-<div class="col-md-4">
+<div class="col-md-5">
 <div class="ls-box">
   <div class="ls-form">
     <%= form_for @user do |f| %>
-      <p class="ls-label col-md-10"><%= f.label :email, 'E-mail: ' %>
-      <%= f.text_field :email %></p>
-      <p class="ls-label col-md-10"><%= f.label :name, 'Nome: ' %>
-      <%= f.text_field :name %></p>
-      <p class="ls-label col-md-10"><%= f.label :cpf, 'CPF: ' %>
-      <%= f.text_field :cpf %></p>
+      <div class="ls-label col-md-11">
+        <%= f.label :email, 'E-mail' %>
+        <p class="ls-label-info">Seu e-mail particular</p>
+        <%= f.text_field :email, placeholder: "Insira seu email" %>
+      </div>
+      <div class="ls-label col-md-11">
+        <%= f.label :name, 'Nome' %>
+        <p class="ls-label-info">Digite seu nome completo</p>
+        <%= f.text_field :name, placeholder: "Nome e sobrenome" %>
+      </div>
+      <div class="ls-label col-md-11">
+        <%= f.label :cpf, 'CPF' %>
+        <%= f.text_field :cpf, placeholder: "Seu número de CPF" %>
+      </div>
+      <div class="ls-label col-md-11">
+        <%= f.label :address_id, 'Endereço' %>
+        <p class="ls-label-info"> Seu endereço não está na lista? <a href="/addresses/new">Cadastrar novo endereço</a>.</p>
+        <div class="ls-custom-select ls-field-sm col-md-5">
+          <%= f.collection_select :address_id, @addresses, :id, :street, :prompt => "Selecione um endereço..." %>
+        </div>
+      </div>
       <p class="ls-actions-btn">
         <input type="submit" value="Cadastrar" class="ls-btn ls-btn-sm" title="Cadastrar">
       </p>

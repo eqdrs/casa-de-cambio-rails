@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @addresses = Address.all
   end
 
   def create
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @addresses = Address.all
   end
 
   def update
