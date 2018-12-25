@@ -1,5 +1,21 @@
 <h1 class="ls-title-intro ls-ico-users">Usuários</h1>
 
+<p><div class="ls-box-filter">
+  <div class="ls-form ls-form-inline ls-float-left">     
+    <%= form_tag(users_path, method: "get") do %>
+      <label class="ls-label col-md-8 col-sm-8">
+      <b class="ls-label-text"><%= label_tag :name, 'Busca por nome' %></b>
+        <div class="ls-field-sm">
+          <%= text_field_tag :name %>
+        </div>
+      </label>
+      <div class="ls-actions-btn">
+        <input type="submit" value="Buscar" class="ls-btn ls-btn-sm" title="BUscar">
+      </div>
+    <% end %>     
+  </div>
+</div></p>
+
 <div class="row" >
   <div class="col-md-7">
     <div class="ls-box">
