@@ -19,13 +19,6 @@
         <%= f.label :cpf, 'CPF' %>
         <%= f.text_field :cpf, placeholder: "Seu número de CPF" %>
       </div>
-      <div class="ls-label col-md-11">
-        <%= f.label :address_id, 'Endereço' %>
-        <p class="ls-label-info"> Seu endereço não está na lista? <a href="/addresses/new">Cadastrar novo endereço</a>.</p>
-        <div class="ls-custom-select ls-field-sm col-md-5">
-          <%= f.collection_select :address_id, @addresses, :id, :street, :prompt => "Selecione um endereço..." %>
-        </div>
-      </div>
       <p class="ls-actions-btn">
         <input type="submit" value="Editar" class="ls-btn ls-btn-sm" title="Editar">
       </p>
